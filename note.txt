@@ -47,3 +47,14 @@ flexbox, hirarki css
 
 hirarki css => set css untuk 1 element, kalau lebih dari 1 maka prioritasnya yg mana.
 inline sytle (style) > id > class > tag name
+
+
+git :
+1. git init
+2. git remote add origin git remote add origin https://github.com/Torao-Law/sadfasdfdasfasdf.git
+3. git add .
+4. git commit -m "your message"
+5. git push origin master/main => etc.
+6. git branch -M main
+7. git checkout -b day-2
+8. git clone https://github.com/Torao-Law/Batch50.git
