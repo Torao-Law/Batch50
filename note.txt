@@ -36,3 +36,14 @@ inline css, internal css, eksternal css.
 
 
 <!-- <th style="border: solid; border-width: 10px; border-color: red;">Experience</th> -->
+
+
+
+
+
+
+==============================================================
+flexbox, hirarki css
+
+hirarki css => set css untuk 1 element, kalau lebih dari 1 maka prioritasnya yg mana.
+inline sytle (style) > id > class > tag name
