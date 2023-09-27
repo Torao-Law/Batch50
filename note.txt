@@ -1,0 +1,162 @@
+Variable, typedata, operator, conditonal, function.
+=================================================
+Variable => tempat menyimpan data/nilai (value)
+var, let, const 
+
+Tipe Data  (Typedata) => Jenis Data, ada yang Primitif/Non Primitif. 
+Primitif => "String", Number (integer, floats), Boolean, Undefined, Null
+Conditional => Mengerjakan suatu task sesuai kondisi.
+Function => Block code yang memiliki tujuan tertentu.
+
+
+====================================================
+var
+const 
+let
+
+=> huruf, bhs inggris, camelCase, -, _
+
+let myName = "Dandi Saputra"
+console.log(myName)
+
+myName = "Denis" 
+console.log(myName)
+
+const age = 25
+age = 18
+
+console.log(age)
+
+
+var isMarried = false
+isMarried = true
+
+console.log(isMarried)
+
+
+var yourName = "Ridho anugrah"
+console.log(yourName)
+
+var yourName = "Abdurrasyid"
+console.log(yourName)
+
+let yourName = "Silvie Nurcahyani"
+console.log(yourName)
+
+let yourName = "Sacrum"
+console.log(yourName)
+
+=============================================================================
+
+typescript
+let myName: string = "Dandi Saputra"
+
+var myName string
+myName := "dandi saputra"
+
+Number
+const age = 25
+console.log(age)
+
+
+string
+let username = 'IvanValiantYangSelaluTersakiti08123543948326743298'
+console.log(typeof username)
+
+
+Undifined
+const x = undefined
+console.log(x)
+
+null
+const x = null
+console.log(x)
+
+const x = 0
+console.log(x)
+
+boolean
+const isMarried = false
+console.log(typeof isMarried)
+
+let nilai = "ujian"
+
+string, number, boolean, undefined, null, float
+
+==============================================================
+let myAge = "15"
+
+if(myAge < 18) {
+  alert("Kamu masih bocil")
+} 
+
+if(myAge < 18) {
+  alert("Kamu masih bocil")
+} else {
+  alert("Kamu sudah dewasa")
+} 
+
+if(myAge < 18) {
+  alert("Kamu masih bocil")
+} else if(myAge < 30) {
+  alert("Kamu sudah dewasa")
+} else {
+  alert("Kamu sudah usia lanjut")
+}
+
+=, ==, === "=>" <=, <==
+
+let myAge = "abc"
+if(myAge < 15) {
+  alert("Benar nilainya")
+} else {
+  alert("Salah tipe data")
+}
+
+
+==============================================================
+Named Function, Arrow Function, Function Expression
+
+named function
+function nameFunction() {
+  // block code
+}
+
+nameFunction()
+
+deklarasi, eksekusi, parameter, argument, return
+
+function sayHello(value1, value2, value3, value4) {
+  console.log(value1)
+  console.log(value2)
+  console.log(value3)
+}
+
+sayHello(34, 21, 33)
+
+
+const greeting = () => {
+  console.log("Say hello")
+}
+
+greeting()
+
+function sayHello() {
+  // proces 1
+  // proces 2
+  // proces 3
+
+  return `nasi sudah matang silahkan diambil`
+}
+
+console.log(sayHello())
+
+Block scope => global, local
+
+
+const sum = (start, end) => {
+  const PI = 3.14
+  return PI + end
+}
+
+console.log(sum(5))
