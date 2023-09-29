@@ -1,0 +1,64 @@
+<html>
+  <head>
+    <title>Batch 50</title>    
+    <link href="./assets/css/style.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <nav>
+      <div class="nav-left">
+        <ul>
+          <img src="./assets/images/logo.png" alt="logo" />
+          <li>
+            <a href="./index.html">Home</a>
+          </li>
+          <li>
+            <a href="#">Blog</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="nav-right">
+        <a href="./contact-me.html">Contact Me</a>
+      </div>
+    </nav>
+    <!-- End Navbar -->
+
+    <form>
+      <div>
+        <label for="name">Name</label>
+        <input type="text" id="name"/>
+      </div>
+      
+      <div>
+        <label for="email">Email</label>
+        <input type="email" id="email"/>
+      </div>
+
+      <div>
+        <label for="phone">Phone Number</label>
+        <input type="text" id="phone"/>
+      </div>
+
+      <div>
+        <label for="subject">Subject</label>
+        <select id="subject">
+          <option value="Frontend Developer">Frontend Developer</option>
+          <option value="Backend Developer">Backend Developer</option>
+          <option value="Fullstack Developer">Fullstack Developer</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="message">Message</label>
+        <textarea id="message"></textarea>
+      </div>
+
+      <div>
+        <button type="button" onclick="getData()">Submit</button>
+      </div>
+    </form>
+  </body>
+  <script src="assets/js/script.js"></script>
+</html>

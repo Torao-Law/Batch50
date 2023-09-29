@@ -1,0 +1,310 @@
+Variable, typedata, operator, conditonal, function.
+=================================================
+Variable => tempat menyimpan data/nilai (value)
+var, let, const 
+
+Tipe Data  (Typedata) => Jenis Data, ada yang Primitif/Non Primitif. 
+Primitif => "String", Number (integer, floats), Boolean, Undefined, Null
+Conditional => Mengerjakan suatu task sesuai kondisi.
+Function => Block code yang memiliki tujuan tertentu.
+
+
+====================================================
+var
+const 
+let
+
+=> huruf, bhs inggris, camelCase, -, _
+
+let myName = "Dandi Saputra"
+console.log(myName)
+
+myName = "Denis" 
+console.log(myName)
+
+const age = 25
+age = 18
+
+console.log(age)
+
+
+var isMarried = false
+isMarried = true
+
+console.log(isMarried)
+
+
+var yourName = "Ridho anugrah"
+console.log(yourName)
+
+var yourName = "Abdurrasyid"
+console.log(yourName)
+
+let yourName = "Silvie Nurcahyani"
+console.log(yourName)
+
+let yourName = "Sacrum"
+console.log(yourName)
+
+=============================================================================
+
+typescript
+let myName: string = "Dandi Saputra"
+
+var myName string
+myName := "dandi saputra"
+
+Number
+const age = 25
+console.log(age)
+
+
+string
+let username = 'IvanValiantYangSelaluTersakiti08123543948326743298'
+console.log(typeof username)
+
+
+Undifined
+const x = undefined
+console.log(x)
+
+null
+const x = null
+console.log(x)
+
+const x = 0
+console.log(x)
+
+boolean
+const isMarried = false
+console.log(typeof isMarried)
+
+let nilai = "ujian"
+
+string, number, boolean, undefined, null, float
+
+==============================================================
+let myAge = "15"
+
+if(myAge < 18) {
+  alert("Kamu masih bocil")
+} 
+
+if(myAge < 18) {
+  alert("Kamu masih bocil")
+} else {
+  alert("Kamu sudah dewasa")
+} 
+
+if(myAge < 18) {
+  alert("Kamu masih bocil")
+} else if(myAge < 30) {
+  alert("Kamu sudah dewasa")
+} else {
+  alert("Kamu sudah usia lanjut")
+}
+
+=, ==, === "=>" <=, <==
+
+let myAge = "abc"
+if(myAge < 15) {
+  alert("Benar nilainya")
+} else {
+  alert("Salah tipe data")
+}
+
+
+==============================================================
+Named Function, Arrow Function, Function Expression
+
+named function
+function nameFunction() {
+  // block code execute
+}
+
+nameFunction()
+
+deklarasi, eksekusi, parameter, argument, return
+
+function sayHello(value1, value2, value3, value4) {
+  console.log(value1)
+  console.log(value2)
+  console.log(value3)
+}
+
+sayHello(34, 21, 33)
+
+
+const greeting = () => {
+  console.log("Say hello")
+}
+
+greeting()
+
+function sayHello() {
+  // proces 1
+  // proces 2
+  // proces 3
+
+  return `nasi sudah matang silahkan diambil`
+}
+
+console.log(sayHello())
+
+Block scope => global, local
+
+
+const sum = (start, end) => {
+  const PI = 3.14
+  return PI + end
+}
+
+console.log(sum(5))
+
+
+
+
+==========================================================================
+DAY 4 (Recapt)
+
+conditonal => sebuah tugas yang kita kerjakan berdasarkan kondisi apa yang kita terima.
+Jika, hari minggu tugas selesai. maka, saya akan liburan.
+Jika tugas belum selesai. maka, selesaikan tugas.
+
+const task = true
+
+if (task) {
+  console.log("Kuy liburan")
+} else {
+  console.log("finish task")
+}
+
+const status = "customer"
+
+if (status == "admin") {
+  console.log("Halaman Penjual")
+} else {
+  console.log("halaman pembeli")
+}
+
+
+Day 4  :
+- Non primitive type datas. 
+- what is object ?
+- what is array ?
+- what is array of object ?
+- looping ?
+- concate, template literal ?
+
+Type data non primitive => object yang memiliki fungsi dan property.
+Object => Kumpulan data.
+Array => Kumpulan data.
+Array of Object => Kumpulan data tapi object2nya beragam ada value ada string dst.
+
+type data non primitive.
+memiliki lebih dari satu typedata.
+type data yang kita buat.
+object, array, array of object.
+
+object
+const MyBio = {
+  name: "dandi saputra",
+  age: 18,
+  isMarried: false,
+  distance: 2,
+  myHobby: {
+    hobby1: "coding",
+    hobby2: "mobile legends",
+    hobby3: "nonton anime"
+  }
+}
+
+const date = new Date()
+
+console.log(MyBio.name)
+console.log(MyBio.isMarried)
+console.log(MyBio.myHobby.hobby2)
+console.log(MyBio)
+console.info(typeof MyBio)
+console.info(typeof date)
+console.info(date)
+
+
+Array 
+[] [] [] [] [] [] [] = 7 => array.length
+0, 1, 2 dst => index
+["Dandi saputra"] [18] [true] ["Mentor FS"] ["Dumbways.ID"] ["Indonesia"]
+
+const myBio = ["Dandi saputra", 18, true, "Mentor FS", "Dumbways.ID", "Indonesia"]
+
+console.table(myBio)
+console.log(myBio[3])
+
+const MyBio = {
+  name: "dandi saputra",
+  age: 18,
+  isMarried: false,
+  distance: 2,
+  myHobby: {
+    hobby1: "coding",
+    hobby2: "mobile legends",
+    hobby3: "nonton anime"
+  }
+}
+
+console.log(MyBio.name, MyBio.isMarried)
+
+array of object
+const myBio = ["Dandi", 18, true, { "id": 1, name: "laki-laki"}]
+
+console.table(myBio)
+const talent = [
+  {
+    id: 1,
+    name: "Mei Kristian Loli",
+    isVip: false
+  },
+  {
+    id: 2,
+    name: "Ivan",
+    isVip: true
+  },
+  {
+    id: 3,
+    name: "Silvi",
+    isVip: false,
+    hobby: [
+      {
+        id: 1,
+        name: "tiktokan",
+      },
+      {
+        id: 2,
+        name: "rebahan",
+      }
+    ]
+  }
+]
+
+console.log(talent)
+console.table(talent)
+console.log(talent[2].name)
+console.log(talent[2]?.hobby[0]?.name)
+
+
+Looping => aksi yang sama dilakukan berulang ulang.
+for, while, do while.
+for(expression1 => nilai awal; expression2 => kondisi; expression3 => aksi selanjutnya) {
+  block code => kode yang di eksekusi
+}
+
+console.log("Hello world 1")
+console.log("Hello world 2")
+console.log("Hello world 3")
+console.log("Hello world 4")
+console.log("Hello world 5")
+
+for(let i = 0; i < 5; i++) {
+  console.log(`Hello world ${i}`)
+  console.log("Hello world " + i)
+}
