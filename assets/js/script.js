@@ -35,3 +35,11 @@ function getData() {
 
   console.log(data)
 }
+
+function perkalian(b) {
+  const a = 10
+
+  return a * b
+} 
+
+console.log(perkalian(5))
