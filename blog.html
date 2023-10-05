@@ -1,27 +1,42 @@
 <html>
   <head>
     <title>Creating Blog Page</title>
-    <link rel="stylesheet" href="assets/css/style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/blog.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   </head>
   <body>
-    <!-- NavBar -->
+    <!-- Navbar -->
     <nav>
       <div class="nav-left">
         <ul>
-          <img src="assets/images/logo.png" alt="logo" >
+          <img src="./assets/images/logo.png" alt="logo" />
           <li>
-              <a href="index.html">Home</a>
+            <a class="item-collapse" href="./index.html">Home</a>
           </li>
           <li>
-              <a href="blog.html">Blog</a>
+            <a class="item-collapse" href="./blog.html">Blog</a>
           </li>
         </ul>
       </div>
 
       <div class="nav-right">
-          <a href="contact-me.html">Contact Me</a>
+        <a class="item-collapse" href="./contact-me.html">Contact Me</a>
+      </div>
+      <div class="nav-right" id="barsmenu">
+        <button class="humberger-button" onclick="openhumberger()">
+          <i class="fa-solid fa-bars"></i>
+        </button>
       </div>
     </nav>
+
+    <div class="humberger-nav-container" id="humberger-nav-container">
+      <a href="./index.html" class="humberger-active">Home</a>
+      <a href="./blog.html">Blog</a>
+      <a href="./contact-me.html">Contact Me</a>
+    </div>
+
+    <!-- End Navbar -->
 
     <!-- Blog -->
     <!-- Form -->
@@ -41,7 +56,7 @@
 
             <div>
               <label>Upload Image</label>
-              <div class="input-blog-image-group">
+              <div class="input-blog-image-group" style="box-sizing: border-box;">
                 <label for="input-blog-image">
                   <p>Attach File</p>
                   <img src="assets/images/file.png" alt="file" />
@@ -94,6 +109,6 @@
       </div>
     </div>
     <script src="./assets/js/blog.js"></script>
-    <script src="./assets/js/testing.js"></script>
+    <script src="./assets/js/button.js"></script>
   </body>
 </html>

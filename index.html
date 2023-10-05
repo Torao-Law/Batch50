@@ -1,7 +1,9 @@
 <html>
   <head>
     <title>Batch 50</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="./assets/css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   </head>
 
   <body>
@@ -11,44 +13,115 @@
         <ul>
           <img src="./assets/images/logo.png" alt="logo" />
           <li>
-            <a href="./index.html">Home</a>
+            <a class="item-collapse" href="./index.html">Home</a>
           </li>
           <li>
-            <a href="#">Blog</a>
+            <a class="item-collapse" href="./blog.html">Blog</a>
           </li>
         </ul>
       </div>
 
       <div class="nav-right">
-        <a href="./contact-me.html">Contact Me</a>
+        <a class="item-collapse" href="./contact-me.html">Contact Me</a>
+      </div>
+      <div class="nav-right" id="barsmenu">
+        <button class="humberger-button" onclick="openhumberger()">
+          <i class="fa-solid fa-bars"></i>
+        </button>
       </div>
     </nav>
+
+    <div class="humberger-nav-container" id="humberger-nav-container">
+      <a href="./index.html" class="humberger-active">Home</a>
+      <a href="./blog.html">Blog</a>
+      <a href="./contact-me.html">Contact Me</a>
+    </div>
+
     <!-- End Navbar -->
 
-    <div 
-      style="
-        margin: 100px auto; 
-        width: 340px; 
-        border: 1px solid #3d3d3d; 
-        padding: 15px; 
-        border-radius: 15px; 
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-        box-shadow: 0 0 30px #3d3d3d">
-      <img src="./assets/images/img.jfif" alt="luffy" style="width: 100%; height: 200px; border-radius: 15px;"/>
-      <h1 style="margin: 0; margin-top: 25px">Monkey D Luffy</h1>
-      <p style="margin: 0; margin-bottom: 25px;">Iam fullstack developer</p>
-      <table style="border: 1px solid #000; border-collapse: collapse; width: 100%;">
-        <tr>
-          <th style="border: 1px solid black">Experience</th>
-          <th style="border: 1px solid black">Year</th>
-        </tr>
-        <tr>
-          <td style="border: 1px solid black; text-align: center;">Personal Web App</td>
-          <td style="border: 1px solid black; text-align: center;">2023</td>
-        </tr>
-      </table>
+    <div class="container">
+      <section>
+        <div class="left">
+          <div class="card-container">
+            <img src="./assets/images/img.jfif" alt="people man" style="width: 100%; border-radius: 15px" />
+            <h1 style="font-family: Poppins, Helvetica, sans-serif;">Dandi Saputra</h1>
+            <p style="color: grey;">Seorang Fullstack Developer Profesional</p>
+
+          <!-- tabel -->
+            <table
+              style="
+              border: 1px solid #000040;
+              width: 100%;
+              text-align: center;
+              border-collapse: collapse;
+              ">
+              <tr>
+                <th style="border: 1px solid #000040">Project Name</th>
+                <th style="border: 1px solid #000040">Year</th>
+              </tr>
+              <tr>
+                <td style="border: 1px solid #000040">Dumbways Mobile App</td>
+                <td style="border: 1px solid #000040">2023</td>
+              </tr>
+              <tr>
+                <td style="border: 1px solid #000040">Dumbways Web App</td>
+                <td style="border: 1px solid #000040">2022</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+
+        <div class="right">
+          <h1>What i do</h1>
+          <p>
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry. Lorem Ipsum has been the industry's standard dummy text ever
+            since the 1500s, when an unknown printer took a galley of type and
+            scrambled it to make a type specimen book. It has survived not only
+            five centuries, but also the leap into electronic typesetting,
+            remaining essentially unchanged.
+          </p>
+
+          <div class="skill">
+            <div>
+              <img src="assets/images/logo.png" />
+              <h3>Frontend Developer</h3>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum,
+                temporibus.
+              </p>
+            </div>
+            <div>
+              <img src="assets/images/logo.png" />
+              <h3>Backend Developer</h3>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum,
+                temporibus.
+              </p>
+            </div>
+            <div>
+              <img src="assets/images/logo.png" />
+              <h3>Fullstack Developer</h3>
+              <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum,
+              temporibus.
+              </p>
+            </div>
+          </div>
+
+          <div class="social-media">
+            <h1>Found Me On</h1>
+            <div class="list-sosmed">
+              <i class="fa-brands fa-facebook-f"></i>
+              <i class="fa-brands fa-instagram"></i>
+              <i class="fa-brands fa-twitter"></i>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   </body>
+  <script src="./assets/js/button.js"></script>
 </html>
 
 

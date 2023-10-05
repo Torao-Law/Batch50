@@ -400,3 +400,8 @@ if(!MySon) {
 } else {
   console.log("anak saya");
 }
+
+
+========================================================================
+Day 6
+Media only screen css => buat responsive

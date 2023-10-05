@@ -1,16 +1,4 @@
-// datanya dari mana ?
-// kita save kemana ?
-const data = [
-  {
-
-  },
-  {
-    
-  },
-  {
-    
-  }
-]
+const data = []
 
 function submitData(event) {
   event.preventDefault()
@@ -103,7 +91,7 @@ function getDuration(time) {
   }
 }
 
-setInterval(renderBlog, 1000)
+// setInterval(renderBlog, 1000)
 
 // 1 tahun = 12 bln
 // 1 bln = 31 hari
