@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Testimonials</title>
+    <link rel="stylesheet" href="assets/css/testimonials.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <nav>
+      <div class="nav-left">
+        <ul>
+          <li>
+            <img src="assets/images/logo.png" alt="logo" />
+          </li>
+          <li class="item-collapse">
+            <a href="index.html">Home</a>
+          </li>
+          <li class="item-collapse">
+            <a href="blog.html">Blog</a>
+          </li>
+          <li class="item-collapse">
+            <a href="testimonials.html" class="active">Testimonials</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="nav-right item-collapse">
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="nav-right" id="barsmenu">
+        <button style="background-color: transparent; border: none; cursor: pointer;" onclick="openHamburger();">
+          <i class="fa-2x fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </nav>
+
+    <div class="hamburger-nav-container" id="hamburger-nav-container">
+      <a href="index.html">Home</a>
+      <a href="blog.html">Blog</a>
+      <a href="testimonials.html" class="hamburger-active">Testimonials</a>
+      <a href="contact.html">Contact Me</a>
+    </div>
+
+    <div class="container">
+        <h1>My Testimonials</h1>
+        <div class="container-rating">
+            <h2> Rating By Star</h2>
+            <div class="rating">
+                <button class="rating-btn" onclick="showTestimonial()">
+                    All
+                </button>
+                <button class="rating-btn" onclick="filterTestimonials(1)">
+                    1 <i class="fa-solid fa-star"></i>
+                </button>
+                <button class="rating-btn" onclick="filterTestimonials(2)">
+                    2 <i class="fa-solid fa-star"></i>
+                </button>
+                <button class="rating-btn" onclick="filterTestimonials(3)">
+                    3 <i class="fa-solid fa-star"></i>
+                </button>
+                <button class="rating-btn" onclick="filterTestimonials(4)">
+                    4 <i class="fa-solid fa-star"></i>
+                </button>
+                <button class="rating-btn" onclick="filterTestimonials(5)">
+                    5 <i class="fa-solid fa-star"></i>
+                </button>
+            </div>
+        </div>
+        <section class="testimonials" id="testimonials">
+            
+            <!-- <div class="testimonial">
+                <img src="assets/images/img.png" class="profile-testimonial" />
+                <p class="quote">"Etiam nec tincidunt erat. Sed faucibus convallis lectus vel porttitor. Fusce
+                    tristique dolor quis odio rhoncus laoreet."</p>
+                <p class="author">- Ilham Fathullah</p>
+            </div> -->
+        </section>
+    </div>
+    <script src="assets/js/index.js"></script>
+    <script src="assets/js/testimonial.js"></script>
+</body>
+
+</html>

@@ -405,3 +405,8 @@ if(!MySon) {
 ========================================================================
 Day 6
 Media only screen css => buat responsive
+
+
+==========================================================
+Day 7
+HOF => parameter yang memiliki nilai  kembali. fungsi untuk menyalurkan fungsi lain ke fungsi lainnya
