@@ -410,3 +410,154 @@ Media only screen css => buat responsive
 ==========================================================
 Day 7
 HOF => parameter yang memiliki nilai  kembali. fungsi untuk menyalurkan fungsi lain ke fungsi lainnya
+HOF Build in JS : map, filter, foreach
+Callback => memanggil kembali function yang tersedia ?
+
+
+
+===========================================================================
+Day 8 
+// console.log("Rahmat");
+
+// function loop() {
+//   for(let i = 0; i < 5; i++) {
+//     console.log(`langkah ke ${i}`);
+//   }
+// }
+
+// loop()
+
+// console.log("Lidia");
+
+console.log("Mulai");
+
+
+function end() {
+  console.log("End");
+}
+
+for(let i = 0; i < 5; i++) {
+  asyncron(i, () => {
+    if(i === 4) {
+      end()
+    }
+  })
+}
+
+
+function asyncron(iterasi, callback) {
+  setTimeout(() =>{
+    console.log(`Langkah ${iterasi}`);
+    callback()
+  }, 1000)
+}
+
+
+const data = fetch('https://jsonplaceholder.typicode.com/users')
+console.log(data);
+fetch('https://jsonplaceholder.typicode.com/users')
+  .then(res => console.log(res))
+  .catch(res => console.log(res))
+
+
+const isVip = true
+
+const chekingVip = new Promise((resolve, reject) => {
+  if(!isVip) {
+    resolve("Member is VIP")
+  } else {
+    reject("Member isnt VIP")
+  }
+})
+
+console.log(chekingVip);
+chekingVip
+  .then(response => console.log('yes ' + response))
+  .catch(response => console.log('no ' + response))
+
+
+const member = new Promise(res => {
+  setTimeout(() => {
+    res([{
+      id: 1,
+      name: "Dandi Saputra",
+      isMember: true
+    }])
+  }, 1000)
+})
+
+const product = new Promise(res => {
+  setTimeout(() => {
+    res([{
+      id: 1,
+      name: "Monitor",
+      price: 10000000
+    }])
+  }, 1000)
+})
+
+// member.then(res => console.log(res))
+// product.then(res => console.log(res))
+Promise.all([product, member])
+  .then(res => console.log(res))
+
+
+
+
+
+syncrhonous function
+function batch() {
+  return "Hallo batch 50"
+}
+
+console.log(batch())
+
+
+ asynchronous function
+function member() {
+  return new Promise(res => {
+    setTimeout(() => {
+      res([{
+        id: 1,
+        name: "Dandi Saputra",
+        isMember: true
+      }])
+    }, 5000)
+  })
+}
+
+async function runMember() {
+  const data = await member()
+  console.log(data);
+}
+
+runMember()
+
+
+
+function member() {
+  return new Promise((resolve, reject) => {
+    const time = 3000
+
+    if(time < 5000) {
+      resolve("run")
+    } else {
+      reject("time's up")
+    }
+  })
+}
+
+const runMember = async () => {
+  try {
+    const data = await member()
+    console.log(data);
+    // console.log(dadatata);
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+runMember()
+
+
+AJAX => javascript untuk interaktif dan dinamic. biar aplikasi bisa ambil data dari server secara async. teknik agar bisa berjalan secara async. mempermudah website untuk mengupdate data secara async tanpa harus melalui proses load.
