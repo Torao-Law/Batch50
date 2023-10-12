@@ -561,3 +561,13 @@ runMember()
 
 
 AJAX => javascript untuk interaktif dan dinamic. biar aplikasi bisa ambil data dari server secara async. teknik agar bisa berjalan secara async. mempermudah website untuk mengupdate data secara async tanpa harus melalui proses load.
+
+
+
+
+
+============================================================
+app.get() -> GET membaca data.
+app.post() -> POST buat data baru.
+app.patch() -> PATCH buat mengupdate data.
+app.delete() -> DELETE buat hapus data.

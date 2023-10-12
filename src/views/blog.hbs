@@ -2,7 +2,8 @@
   <head>
     <title>Creating Blog Page</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/css/blog.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/blog.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   </head>
   <body>
@@ -10,21 +11,21 @@
     <nav>
       <div class="nav-left">
         <ul>
-          <img src="./assets/images/logo.png" alt="logo" />
+          <img src="/images/logo.png" alt="logo" />
           <li>
-            <a class="item-collapse" href="./index.html">Home</a>
+            <a class="item-collapse" href="/">Home</a>
           </li>
           <li>
-            <a class="item-collapse" href="./blog.html">Blog</a>
+            <a class="item-collapse" href="/blog">Blog</a>
           </li>
           <li class="item-collapse">
-            <a href="./testimonial.html">Testimonials</a>
+            <a href="/testimonial">Testimonials</a>
           </li>
         </ul>
       </div>
 
       <div class="nav-right">
-        <a class="item-collapse" href="./contact-me.html">Contact Me</a>
+        <a class="item-collapse" href="/contact-me">Contact Me</a>
       </div>
       <div class="nav-right" id="barsmenu">
         <button class="humberger-button" onclick="openhumberger()">
@@ -34,47 +35,20 @@
     </nav>
 
     <div class="humberger-nav-container" id="humberger-nav-container">
-      <a href="./index.html" class="humberger-active">Home</a>
-      <a href="./blog.html">Blog</a>
-      <a href="./contact-me.html">Contact Me</a>
+      <a href="/" class="humberger-active">Home</a>
+      <a href="/blog">Blog</a>
+      <a href="/contact-me">Contact Me</a>
     </div>
 
     <!-- End Navbar -->
 
     <!-- Blog -->
     <!-- Form -->
-    <div class="blog">
-      <div class="blog-form">
-        <div class="form-container">
-          <form onsubmit="submitData(event)">
-            <h1>Create Post Blog</h1>
-            <div>
-              <label for="input-blog-title">Title</label>
-              <input id="input-blog-title" />
-            </div>
-            <div>
-              <label for="input-blog-content">Content</label>
-              <textarea id="input-blog-content"></textarea>
-            </div>
-
-            <div>
-              <label>Upload Image</label>
-              <div class="input-blog-image-group" style="box-sizing: border-box;">
-                <label for="input-blog-image">
-                  <p>Attach File</p>
-                  <img src="assets/images/file.png" alt="file" />
-                </label>
-                <input type="file" id="input-blog-image" hidden />
-              </div>
-            </div>
-            <div class="button-group">
-              <button>Post Blog</button>
-            </div>
-          </form>
-        </div>
+    <div class="blog container mt-5">
+      <div class="d-flex justify-content-end">
+        <a class="btn btn-danger px-3 py-1" href="/addblog">Add Blog</a>
       </div>
 
-      <hr class="line" />
       <div class="blog-list" id="contents">
         <!-- dynamic content would be here -->
         <div class="blog-list-item">
@@ -87,7 +61,7 @@
               <button class="btn-post">Post Blog</button>
             </div>
             <h1>
-              <a href="blog-detail.html" target="_blank"
+              <a href="/blog-detail/2" target="_blank"
                 >Pasar Coding di Indonesia Dinilai Masih Menjanjikan</a
               >
             </h1>
@@ -111,7 +85,7 @@
         </div>
       </div>
     </div>
-    <script src="./assets/js/blog.js"></script>
-    <script src="./assets/js/button.js"></script>
+    <script src="/js/blog.js"></script>
+    <script src="/js/button.js"></script>
   </body>
 </html>
