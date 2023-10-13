@@ -1,5 +1,8 @@
 const express = require('express')
 const path = require('path')
+const data = require('./src/mocks/blogs.json')
+// const data2 = require('./src/mocks/blogs.js')
+// const fetchData = require('./src/config/api')
 const app = express()
 const PORT = 5000
 
@@ -19,8 +22,15 @@ app.get('/testimonial', testimonial)
 app.get('/contact-me', contactme)
 app.get('/blog', blog)
 app.get('/blog-detail/:id', blogDetail) //url params
+app.get('/delete-blog/:id', deleteBlog)
 app.get('/addblog', formblog)
 app.post('/addblog', addblog)
+
+// async function getData() {
+//   let fetchdatafromapi = await fetchData()
+//   console.log(fetchdatafromapi);
+// }
+//  getData()
 
 // example render template html without template engine
 app.get('/testes', (req, res) => {
@@ -34,12 +44,13 @@ app.listen(PORT, () => {
   console.log("Server running on port 5000");
 })
 
+
 function home(req, res) {
   res.render('index')
 }
 
 function testimonial(req, res) {
-  res.render('testimonial.html')
+  res.render('testimonial')
 }
 
 function contactme(req, res) {
@@ -47,7 +58,8 @@ function contactme(req, res) {
 }
 
 function blog(req, res) {
-  res.render('blog')
+  // console.log(data2);
+  res.render('blog', { blogs: data })
 }
 
 function blogDetail(req, res) {
@@ -69,8 +81,27 @@ function formblog(req, res) {
 
 function addblog(req, res) {
   const { title, content } = req.body
-  // const title = req.body.title
-  // const content = req.body.content
+
   console.log(title);
   console.log(content);
+
+  const data = {
+    title,
+    content,
+    author: "Rebbecca Eltra",
+    postedAt: new Date()
+  }
+
+  // blogs.push(data) => add an element last element
+  data.unshift(data) // add an element first element
+
+  res.redirect('/blog')
+}
+
+function deleteBlog(req, res) {
+  const { id } = req.params
+  console.log(id);
+
+  data.splice(id, 1)
+  res.redirect('/blog')
 }
