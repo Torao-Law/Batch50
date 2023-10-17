@@ -571,3 +571,44 @@ app.get() -> GET membaca data.
 app.post() -> POST buat data baru.
 app.patch() -> PATCH buat mengupdate data.
 app.delete() -> DELETE buat hapus data.
+
+
+-================================================
+const Request = require('request')
+
+
+
+async function fetchdata() {
+  const api = "https://jsonplaceholder.typicode.com/users"
+  
+  const response = await Request.get(api,(error, response, body) => {
+    // let datafetch = []
+    if(error) {
+      return console.dir(error);
+    }
+    return JSON.parse(body)
+  })
+
+  return response
+}
+
+module.exports = fetchdata
+
+
+============================================================================
+INSERT INTO "Users"(email, password)
+	VALUES ('dandidev@mail.com', 'root');
+	
+
+SELECT email, password FROM "Users"
+
+SELECT * FROM "Users"
+
+UPDATE public."Users"
+	SET email='dandis@mail.com'
+	WHERE id = 1;
+
+DELETE FROM "Users" WHERE id = 2
+
+SELECT * from "Users" WHERE COLUMN_NAME NOT IN ("id")
+

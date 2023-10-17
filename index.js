@@ -1,10 +1,12 @@
 const express = require('express')
 const path = require('path')
 const data = require('./src/mocks/blogs.json')
-// const data2 = require('./src/mocks/blogs.js')
-// const fetchData = require('./src/config/api')
 const app = express()
 const PORT = 5000
+
+const config = require('./src/config/config.json')
+const { Sequelize, QueryTypes } = require("sequelize")
+const sequelize = new Sequelize(config.development)
 
 // setup to call hbs 
 app.set('view engine', 'hbs')
@@ -25,12 +27,6 @@ app.get('/blog-detail/:id', blogDetail) //url params
 app.get('/delete-blog/:id', deleteBlog)
 app.get('/addblog', formblog)
 app.post('/addblog', addblog)
-
-// async function getData() {
-//   let fetchdatafromapi = await fetchData()
-//   console.log(fetchdatafromapi);
-// }
-//  getData()
 
 // example render template html without template engine
 app.get('/testes', (req, res) => {
@@ -57,9 +53,20 @@ function contactme(req, res) {
   res.render('contact-me')
 }
 
-function blog(req, res) {
-  // console.log(data2);
-  res.render('blog', { blogs: data })
+async function blog(req, res) {
+  try {
+    const query = `SELECT id, title, image, content, "createdAt" FROM blogs`
+    let obj = await sequelize.query(query, { type: QueryTypes.SELECT })
+
+    const data = obj.map((res) => ({
+      ...res,
+      author: "Dandi Saputra"
+    }))
+
+    res.render('blog', { blogs: data })
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 function blogDetail(req, res) {
