@@ -612,3 +612,39 @@ DELETE FROM "Users" WHERE id = 2
 
 SELECT * from "Users" WHERE COLUMN_NAME NOT IN ("id")
 
+
+
+Jualan kopi :
+- pembeli (user)
+- product
+- transaksi
+
+
+- pembeli (user)
+- id
+- nama
+- email
+- password
+
+
+- product
+- id
+- nama
+- deskripsi
+- qty
+- price
+
+
+- pembeli (user)
+- id => pk, not null, varchar(255)
+- nama => not null, varchar(255)
+- email
+- password
+
+
+- product
+- id
+- nama
+- deskripsi
+- qty
+- price

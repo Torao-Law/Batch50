@@ -73,12 +73,12 @@
                   class="btn btn-secondary"
                 >Edit Post</a>
                 <a 
-                  href="/delete-blog/{{@index}}"
+                  href="/delete-blog/{{this.id}}"
                   class="btn btn-danger "
                 >Delete</a>
               </div>
               <h1>
-                <a href="/blog-detail/2" target="_blank">
+                <a href="/blog-detail/{{this.id}}" target="_blank">
                   {{this.title}}
                 </a>
               </h1>

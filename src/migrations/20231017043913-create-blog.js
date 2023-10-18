@@ -28,6 +28,10 @@ module.exports = {
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE
+      },
+      postedAt: {
+        allowNull: true,
+        type: Sequelize.DATE
       }
     });
   },

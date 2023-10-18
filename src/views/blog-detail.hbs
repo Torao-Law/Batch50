@@ -43,11 +43,11 @@
     <!-- Blog -->
     <div class="blog-detail">
       <div class="blog-detail-container">
-        <h1>{{data.title}} | {{data.id}}</h1>
-        <div class="author">12 Jul 2021 22:30 WIB | Ichsan Emrald Alamsyah</div>
+        <h1>{{blog.title}} | {{blog.id}}</h1>
+        <div class="author">{{blog.createdAt}} | {{blog.author}}</div>
         <img src="/images/blog-img-detail.png" alt="detail" />
         <p>
-          {{data.content}}
+          {{blog.content}}
         </p>
       </div>
     </div>

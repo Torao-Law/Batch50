@@ -1,8 +1,8 @@
 const express = require('express')
 const path = require('path')
-const data = require('./src/mocks/blogs.json')
 const app = express()
 const PORT = 5000
+// const { blog } = require('./src/models')
 
 const config = require('./src/config/config.json')
 const { Sequelize, QueryTypes } = require("sequelize")
@@ -22,7 +22,7 @@ app.use(express.urlencoded({ extended: false }))
 app.get('/', home)
 app.get('/testimonial', testimonial)
 app.get('/contact-me', contactme)
-app.get('/blog', blog)
+app.get('/blog', blogs)
 app.get('/blog-detail/:id', blogDetail) //url params
 app.get('/delete-blog/:id', deleteBlog)
 app.get('/addblog', formblog)
@@ -53,7 +53,7 @@ function contactme(req, res) {
   res.render('contact-me')
 }
 
-async function blog(req, res) {
+async function blogs(req, res) {
   try {
     const query = `SELECT id, title, image, content, "createdAt" FROM blogs`
     let obj = await sequelize.query(query, { type: QueryTypes.SELECT })
@@ -62,53 +62,64 @@ async function blog(req, res) {
       ...res,
       author: "Dandi Saputra"
     }))
-
-    res.render('blog', { blogs: data })
+  
+  res.render('blog', { blogs: data })
   } catch (error) {
     console.log(error);
   }
 }
+// async function blogs(req, res) {
+//   try {
+//     const data = await blog.findAll()
 
-function blogDetail(req, res) {
-  const { id } = req.params
-  // const id = req.params.id
+//     console.log(data);
+//   } catch (error) {
+//     console.log(error);
+//   }
+// }
 
-  const data = {
-    id,
-    title: "Saya adalah peminat nomor one piece",
-    content: "REPUBLIKA.CO.ID, JAKARTA -- Ketimpangan sumber daya manusia (SDM) di sektor digital masih menjadi isu yang belum terpecahkan. Berdasarkan penelitian ManpowerGroup, ketimpangan SDM global, termasuk Indonesia, meningkat dua kali lipat dalam satu dekade terakhir. Khusus di sektor teknologi yang berkembang pesat, menurut Kemendikbudristek, Indonesia kekurangan sembilan juta pekerja teknologi hingga tahun 2030. Hal itu berarti Indonesia memerlukan sekitar 600 ribu SDM digital yang memasuki pasar setiap tahunnya."
+async function blogDetail(req, res) {
+  try {
+    const { id } = req.params // 5
+    const query =`SELECT * FROM blogs WHERE id=${id}` // SELECT * FROM blogs WHERE id=5
+    const obj = await sequelize.query(query, { type: QueryTypes.SELECT })
+    const data = obj.map((res) => ({
+      ...res,
+      author: "Rebbecca Eltra"
+    }))
+
+    console.log(data);
+    res.render('blog-detail', { blog: data[0] })
+  } catch (err) {
+    console.log(err);
   }
-
-  res.render('blog-detail', { data })
 }
 
 function formblog(req, res) {
   res.render('add-blog')
 }
 
-function addblog(req, res) {
-  const { title, content } = req.body
+async function addblog(req, res) {
+  try {
+    const { title, content } = req.body
+    const image = "image.png"
+    const query = `INSERT INTO blogs (title, content, image, "createdAt", "updatedAt") VALUES ('${title}', '${content}', '${image}', NOW(), NOW())`
+    
+    await sequelize.query(query)
 
-  console.log(title);
-  console.log(content);
-
-  const data = {
-    title,
-    content,
-    author: "Rebbecca Eltra",
-    postedAt: new Date()
+    res.redirect('/blog')
+  } catch (error) {
+    console.log(error);
   }
-
-  // blogs.push(data) => add an element last element
-  data.unshift(data) // add an element first element
-
-  res.redirect('/blog')
 }
 
-function deleteBlog(req, res) {
-  const { id } = req.params
-  console.log(id);
-
-  data.splice(id, 1)
-  res.redirect('/blog')
+async function deleteBlog(req, res) {
+  try {
+    const { id } = req.params
+    
+    await sequelize.query("DELETE FROM blogs WHERE id =" + id)
+    res.redirect('/blog')
+  } catch (error) {
+    console.log(error);
+  }
 }

@@ -17,13 +17,14 @@ module.exports = (sequelize, DataTypes) => {
     title: DataTypes.STRING,
     content: DataTypes.STRING,
     image: DataTypes.STRING,
-    author: DataTypes.INTEGER
+    author: DataTypes.INTEGER,
+    postedAt: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'blog',
     timestamps: true,
     createdAt: true,
-    updatedAt: 'updateTimestamp'
+    updatedAt: true
   });
   return blog;
 };
