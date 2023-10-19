@@ -648,3 +648,9 @@ Jualan kopi :
 - deskripsi
 - qty
 - price
+
+
+=======================================
+password input : sultanselalutersakiti
+salt (10)  : aduinkjera
+password hash : dfas34rdgfad.jo2op3i#.daf901213er
