@@ -19,56 +19,69 @@
   </head>
   <body>
     <!-- Navbar -->
-    <nav>
-      <div class="nav-left">
-        <ul>
-          <img src="/images/logo.png" alt="logo" />
-          <li>
-            <a class="item-collapse" href="/">Home</a>
-          </li>
-          <li>
-            <a class="item-collapse" href="/blog">Blog</a>
-          </li>
-          <li class="item-collapse">
-            <a href="/testimonial">Testimonials</a>
-          </li>
-        </ul>
-      </div>
-
-      <div class="nav-right">
-        <a class="item-collapse" href="/contact-me">Contact Me</a>
-      </div>
-      <div class="nav-right" id="barsmenu">
-        <button class="humberger-button" onclick="openhumberger()">
-          <i class="fa-solid fa-bars"></i>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container">
+        <a class="navbar-brand" href="/">
+          <img src="/images/logo.png" id="image" />
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
         </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 ms-5 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link " aria-current="page" href="/">Home</a>
+            </li>
+            <li class="nav-item ms-3">
+              <a class="nav-link" href="/blog">Add Blog</a>
+            </li>
+          </ul>
+
+          <div class="d-flex justify-content-end">
+              <ul class="navbar-nav me-auto mb-2 ms-5 mb-lg-0">
+                {{#if isLogin}}
+                  <li class="nav-item">
+                    <a class="nav-link text-danger active fw-semibold" href="#">Hallo, {{user}}</a>
+                  </li>
+                  <li class="nav-item ms-3">
+                    <a class="nav-link" href="/logout">Logout</a>
+                  </li>
+                {{else}}
+                  <li class="nav-item">
+                    <a class="nav-link text-danger active fw-semibold" href="/register">Register</a>
+                  </li>
+                  <li class="nav-item ms-3">
+                    <a class="nav-link" href="/login">Login</a>
+                  </li>
+                {{/if}}
+              </ul>
+              <a class="btn btn-danger btn-submit ms-5" href="/contact-me">Contact Me</a>
+          </div>
+        </div>
       </div>
     </nav>
-
-    <div class="humberger-nav-container" id="humberger-nav-container">
-      <a href="/" class="humberger-active">Home</a>
-      <a href="/blog">Blog</a>
-      <a href="/contact-me">Contact Me</a>
-    </div>
 
     <!-- End Navbar -->
 
     <!-- Blog -->
     <!-- Form -->
     <div class="blog container mt-5">
+      {{#if isLogin}}
       <div class="d-flex justify-content-end">
         <a class="btn btn-danger px-3 py-1" href="/addblog">Add Blog</a>
       </div>
+      {{/if}}
 
       <div class="blog-list" id="contents">
         <!-- dynamic content would be here -->
         {{#each blogs}}
           <div class="blog-list-item">
             <div class="blog-image">
-              <img src="/images/blog-img.png" alt="" />
+              <img src="{{this.image}}" alt="" />
             </div>
             <div class="blog-content">
               <div class="btn-group">
+                {{#if this.isLogin}}
                 <a 
                   class="btn btn-secondary"
                 >Edit Post</a>
@@ -76,6 +89,7 @@
                   href="/delete-blog/{{this.id}}"
                   class="btn btn-danger "
                 >Delete</a>
+                {{/if}}
               </div>
               <h1>
                 <a href="/blog-detail/{{this.id}}" target="_blank">

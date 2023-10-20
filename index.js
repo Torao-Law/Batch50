@@ -5,6 +5,7 @@ const PORT = 5000
 const bcrypt = require('bcrypt')
 const session = require('express-session')
 const flash = require('express-flash')
+const upload = require('./src/middlewares/uploadFile')
 // const { blog } = require('./src/models')
 
 const config = require('./src/config/config.json')
@@ -17,6 +18,7 @@ app.set('views', path.join(__dirname, 'src/views'))
 
 // set static file server
 app.use(express.static('src/assets'))
+app.use(express.static('src/uploads'))
 
 // parsing data from client
 app.use(express.urlencoded({ extended: false }))
@@ -46,7 +48,7 @@ app.get('/blog', blogs)
 app.get('/blog-detail/:id', blogDetail) //url params
 app.get('/delete-blog/:id', deleteBlog)
 app.get('/addblog', formblog)
-app.post('/addblog', addblog)
+app.post('/addblog', upload.single('upload-image'), addblog)
 app.get('/register', formRegister)
 app.post('/register', addUser)
 app.get('/login', formLogin)
@@ -82,15 +84,19 @@ function contactme(req, res) {
 
 async function blogs(req, res) {
   try {
-    const query = `SELECT id, title, image, content, "createdAt" FROM blogs`
+    const query = `SELECT blogs.id, title, image, content, blogs."createdAt", users.name AS author FROM blogs LEFT JOIN users ON blogs.author =  users.id ORDER BY blogs.id DESC`
     let obj = await sequelize.query(query, { type: QueryTypes.SELECT })
 
     const data = obj.map((res) => ({
       ...res,
-      author: "Dandi Saputra"
+      isLogin: req.session.isLogin
     }))
   
-  res.render('blog', { blogs: data })
+  res.render('blog', { 
+    blogs: data,
+    isLogin: req.session.isLogin,
+    user: req.session.user
+  })
   } catch (error) {
     console.log(error);
   }
@@ -108,11 +114,10 @@ async function blogs(req, res) {
 async function blogDetail(req, res) {
   try {
     const { id } = req.params // 5
-    const query =`SELECT * FROM blogs WHERE id=${id}` // SELECT * FROM blogs WHERE id=5
+    const query =`SELECT blogs.id, title, image, content, blogs."createdAt", users.name AS author FROM blogs LEFT JOIN users ON blogs.author =  users.id WHERE blogs.id=${id}` // SELECT * FROM blogs WHERE id=5
     const obj = await sequelize.query(query, { type: QueryTypes.SELECT })
     const data = obj.map((res) => ({
       ...res,
-      author: "Rebbecca Eltra"
     }))
 
     console.log(data);
@@ -123,14 +128,18 @@ async function blogDetail(req, res) {
 }
 
 function formblog(req, res) {
-  res.render('add-blog')
+  res.render('add-blog', {
+    isLogin: req.session.isLogin,
+    user: req.session.user
+  })
 }
 
 async function addblog(req, res) {
   try {
     const { title, content } = req.body
-    const image = "image.png"
-    const query = `INSERT INTO blogs (title, content, image, "createdAt", "updatedAt") VALUES ('${title}', '${content}', '${image}', NOW(), NOW())`
+    const idUser = req.session.idUser
+    const image = req.file.filename
+    const query = `INSERT INTO blogs (title, content, image, author, "createdAt", "updatedAt") VALUES ('${title}', '${content}', '${image}', ${idUser}, NOW(), NOW())`
     
     await sequelize.query(query)
 
@@ -193,6 +202,7 @@ async function userLogin(req, res) {
         return res.redirect('/login')
       } else {
         req.session.isLogin = true,
+        req.session.idUser = obj[0].id
         req.session.user = obj[0].name
         req.flash('success', ' login success')
         req.flash('danger', 'password wrong')

@@ -651,6 +651,21 @@ Jualan kopi :
 
 
 =======================================
-password input : sultanselalutersakiti
-salt (10)  : aduinkjera
+password input : sultanselalutersakitiabalabalblablacukurukpinjemseratusharisenendibalikinkitajogingdulu
+salt (100)  : aduinkjeradfasdfdsaffasdfasdfsdf242rdfadsfasdfasdfadfadfasdfasdfasdfasf
 password hash : dfas34rdgfad.jo2op3i#.daf901213er
+
+
+
+
+===================================================================
+foreign key => kunci asing yang merujuk pada primary key table lain
+primary vs foreign key
+
+jenis relasi
+one to one => satu table hanya memiliki satu relasi
+examp : user (nama, username, password) <-> Profile (jenis kelamin, alamat, status etc.)
+one to many => satu table memiliki banyak relasi
+examp : user (customer) <-> Transaksi (name, etc)
+many to many => setiap table memiliki banyak relasi
+examp : student <-> mapel

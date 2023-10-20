@@ -10,29 +10,43 @@
 
   <body >
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg bg-body-secondary fixed-top">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
       <div class="container">
-        <a class="navbar-brand me-5" href="/">
-          <img src="/images/logo.png" alt="logo-brand" />
+        <a class="navbar-brand" href="/">
+          <img src="/images/logo.png" id="image" />
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item me-2">
-              <a class="nav-link" href="/">Home</a>
+          <ul class="navbar-nav me-auto mb-2 ms-5 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link " aria-current="page" href="/">Home</a>
             </li>
-            <li class="nav-item me-2">
-              <a class="nav-link active text-danger fw-bold" href="/blog">Blog</a>
-            </li>
-            <li class="nav-item me-2">
-              <a class="nav-link" href="/testimonial">Testimonials</a>
+            <li class="nav-item ms-3">
+              <a class="nav-link" href="/blog">Add Blog</a>
             </li>
           </ul>
 
-          <div class="d-flex">
-            <a class="btn btn-danger" href="/contact-me">Contact Me</a>
+          <div class="d-flex justify-content-end">
+              <ul class="navbar-nav me-auto mb-2 ms-5 mb-lg-0">
+                {{#if isLogin}}
+                  <li class="nav-item">
+                    <a class="nav-link text-danger active fw-semibold" href="#">Hallo, {{user}}</a>
+                  </li>
+                  <li class="nav-item ms-3">
+                    <a class="nav-link" href="/logout">Logout</a>
+                  </li>
+                {{else}}
+                  <li class="nav-item">
+                    <a class="nav-link text-danger active fw-semibold" href="/register">Register</a>
+                  </li>
+                  <li class="nav-item ms-3">
+                    <a class="nav-link" href="/login">Login</a>
+                  </li>
+                {{/if}}
+              </ul>
+              <a class="btn btn-danger btn-submit ms-5" href="/contact-me">Contact Me</a>
           </div>
         </div>
       </div>
@@ -47,6 +61,7 @@
         class="w-75 mx-auto"
         method="post"
         action="/addblog"
+        enctype="multipart/form-data"
       >
         <div class="mb-3">
           <label for="title" class="form-label">Title</label>
@@ -60,7 +75,7 @@
 
         <div class="mb-3">
           <label for="uploadImage" class="form-label">Upload Image</label>
-          <input type="file" class="form-control" id="uploadImage">
+          <input type="file" class="form-control" name="upload-image" id="uploadImage">
         </div>
 
         <div class="d-flex justify-content-end mt-5">
